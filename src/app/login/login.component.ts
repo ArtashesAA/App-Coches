@@ -12,11 +12,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  errorMessage: string = '';
+
   login(form: NgForm) {
     const email = form.value.email;
-
     const password = form.value.password;
 
-    this.loginService.login(email, password);
+    this.loginService.login(email, password).catch((error) => {
+      console.error('Login error:', error);
+
+      this.errorMessage = 'Usuario o contraseña incorrectos';
+    });
   }
 }

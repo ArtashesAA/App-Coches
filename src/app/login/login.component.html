@@ -1,5 +1,5 @@
 <br /><br />
-<div id="container">
+<div id="container" style="width: 600px; height: 400px; margin: auto">
   <form
     class="form-group row"
     #miFormulario="ngForm"
@@ -55,6 +55,10 @@
     <button type="submit" class="btn btn-primary btn-block mb-4">
       Iniciar sesión
     </button>
+
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+      {{ errorMessage }}
+    </div>
 
     <!-- Registro -->
     <div class="text-center">

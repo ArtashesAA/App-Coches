@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -16,12 +16,17 @@ import { ServicioCochesService } from './servicio-coches.service';
 import { InicioComponentComponent } from './inicio-component/inicio-component.component';
 import { CatalogoComponentComponent } from './catalogo-component/catalogo-component.component';
 import { CrearCocheComponentComponent } from './crear-coche-component/crear-coche-component.component';
+import { VerCocheComponentComponent } from './ver-coche-component/ver-coche-component.component';
 
 const appRoutes: Routes = [
   { path: '', component: InicioComponentComponent },
   {
     path: 'catalogo',
     component: CatalogoComponentComponent,
+  },
+  {
+    path: 'ver/:id',
+    component: VerCocheComponentComponent,
   },
   {
     path: 'crear',
@@ -43,12 +48,14 @@ const appRoutes: Routes = [
     InicioComponentComponent,
     CatalogoComponentComponent,
     CrearCocheComponentComponent,
+    VerCocheComponentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ServicioCochesService,

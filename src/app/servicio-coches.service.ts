@@ -24,7 +24,7 @@ export class ServicioCochesService {
 
   agregarCocheServicio(coche: Coche) {
     this.servicioGeneral.muestraMensaje(
-      'Coche que se va a agregar: ' + '\n' + coche.marca + coche.modelo
+      'Coche que se va a agregar: ' + '\n' + coche.marca + ' ' + coche.modelo
     );
     this.coches.push(coche);
     if (this.coches.length === 1) {
@@ -46,6 +46,7 @@ export class ServicioCochesService {
   }
 
   eliminarCoche(indice: number) {
+    this.servicioGeneral.muestraMensaje('Coche eliminado');
     this.coches.splice(indice, 1);
     this.dataService.eliminarCoche(indice);
 

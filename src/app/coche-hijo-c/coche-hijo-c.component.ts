@@ -15,12 +15,6 @@ export class CocheHijoCComponent {
 
   ngOnInit(): void {}
 
-  arrayCaracteristicas = [''];
-
-  agregarCaracteristica(nuevaCaracteristica: any) {
-    this.arrayCaracteristicas.push(nuevaCaracteristica);
-  }
-
   estaLogueado() {
     return this.loginService.estaLogueado();
   }

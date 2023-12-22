@@ -41,12 +41,12 @@ export class CrearCocheComponentComponent implements OnInit {
   }
 
   agregarCoche() {
-    if (this.validarFormulario()) {
+    if (this.miFormulario.valid) {
       let miCoche = new Coche(
-        this.cuadroMarca,
-        this.cuadroModelo,
-        this.cuadroAnyo,
-        this.cuadroCaballos
+        this.miFormulario.value.marca,
+        this.miFormulario.value.modelo,
+        this.miFormulario.value.anyo,
+        this.miFormulario.value.caballos
       );
 
       this.miServicio.agregarCocheServicio(miCoche);

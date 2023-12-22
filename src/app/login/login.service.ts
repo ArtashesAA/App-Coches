@@ -11,29 +11,33 @@ export class LoginService {
 
   token: string;
 
-  login(email: string, password: string) {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        firebase
-          .auth()
-          .currentUser?.getIdToken()
-          .then((token) => {
-            this.token = token;
-            this.cookies.set('token', this.token);
-            this.router.navigate(['/']);
-          });
-      });
+  login(email: string, password: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((response) => {
+          firebase
+            .auth()
+            .currentUser?.getIdToken()
+            .then((token) => {
+              this.token = token;
+              this.cookies.set('token', this.token);
+              this.router.navigate(['/']);
+              resolve();
+            });
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
   }
 
   getIdToken() {
-    //return this.token;
     return this.cookies.get('token');
   }
 
   estaLogueado() {
-    //return this.token;
     return this.cookies.get('token');
   }
 

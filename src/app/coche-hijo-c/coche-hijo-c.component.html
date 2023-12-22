@@ -8,7 +8,11 @@
           {{ cocheDeLista.caballos }}
           <br />
           <div>
-            <button class="btn btn-primary" style="margin-right: 40px">
+            <button
+              class="btn btn-primary"
+              [routerLink]="['/ver', indice]"
+              style="margin-right: 40px"
+            >
               Ver
             </button>
             <button
@@ -30,12 +34,6 @@
             </button>
           </div>
         </div>
-
-        <ul style="list-style: none">
-          <li *ngFor="let caracteristica of arrayCaracteristicas">
-            {{ caracteristica }}
-          </li>
-        </ul>
       </div>
 
       <br />

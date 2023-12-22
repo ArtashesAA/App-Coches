@@ -12,14 +12,6 @@
         required
         pattern="[a-zA-Z0-9\s]+"
       />
-      <div
-        *ngIf="
-          miFormulario.controls['marca'].hasError('required') &&
-          miFormulario.controls['marca'].touched
-        "
-      >
-        Este campo es obligatorio.
-      </div>
     </div>
     <div class="form-group col-md-3">
       <label for="modelo">Modelo:</label>
@@ -33,14 +25,6 @@
         required
         pattern="[a-zA-Z0-9\s]+"
       />
-      <div
-        *ngIf="
-          miFormulario.controls['marca'].hasError('required') &&
-          miFormulario.controls['marca'].touched
-        "
-      >
-        Este campo es obligatorio.
-      </div>
     </div>
     <div class="form-group col-md-3">
       <label for="anyo">Año:</label>
@@ -53,14 +37,6 @@
         [(ngModel)]="cuadroAnyo"
         required
       />
-      <div
-        *ngIf="
-          miFormulario.controls['marca'].hasError('required') &&
-          miFormulario.controls['marca'].touched
-        "
-      >
-        Este campo es obligatorio.
-      </div>
     </div>
     <div class="form-group col-md-3">
       <label for="caballos">Caballos:</label>
@@ -73,14 +49,6 @@
         [(ngModel)]="cuadroCaballos"
         required
       />
-      <div
-        *ngIf="
-          miFormulario.controls['marca'].hasError('required') &&
-          miFormulario.controls['marca'].touched
-        "
-      >
-        Este campo es obligatorio.
-      </div>
     </div>
 
     <div class="col">
